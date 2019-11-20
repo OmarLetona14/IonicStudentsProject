@@ -1,0 +1,23 @@
+<app-header></app-header>
+<ion-content>
+  <ion-item>
+      <ion-label>Titulo</ion-label>
+      <ion-input [(ngModel)]="titulo"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Contenido</ion-label>
+    <ion-textarea [(ngModel)]="contenido"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Publicar en</ion-label>
+    <ion-select expand="block" placeholder="Seleccione un curso" [(ngModel)]="idSeccion">
+        <ion-select-option  *ngFor="let seccion of secciones">
+          {{seccion.idSeccion}} 
+        </ion-select-option>
+      </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="agregarPublicacion()">Publicar</ion-button>
+  </ion-item>
+</ion-content>

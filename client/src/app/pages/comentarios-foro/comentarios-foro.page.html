@@ -1,0 +1,18 @@
+<app-header></app-header>
+<ion-content>
+
+  <ion-card *ngFor="let comentario of comentarios">
+    <ion-card-header>
+      {{comentario.idUsuario}}
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{comentario.contenido}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="primary" (click)="add()" >
+          <i class="fas fa-plus"></i>
+      </ion-fab-button>
+    </ion-fab>
+</ion-content>

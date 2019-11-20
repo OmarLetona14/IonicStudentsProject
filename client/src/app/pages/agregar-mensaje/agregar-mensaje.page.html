@@ -1,0 +1,22 @@
+<app-header></app-header>
+<ion-content>
+    <ion-item>
+        <ion-label>Asunto</ion-label>
+        <ion-input [(ngModel)]="asunto"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cuerpo del mensaje</ion-label>
+      <ion-textarea [(ngModel)]="cuerpo"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mandar a</ion-label>
+      <ion-select expand="block" placeholder="Seleccione un destinatario" [(ngModel)]="idDestinatario">
+          <ion-select-option  *ngFor="let usuario of usuarios">
+            {{usuario.idUsuario}} 
+          </ion-select-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-button (click)="agregarMensaje()">Enviar</ion-button>
+    </ion-item>
+</ion-content>

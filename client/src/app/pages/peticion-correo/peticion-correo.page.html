@@ -1,0 +1,12 @@
+<app-header></app-header>
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-label position="floating">Por favor, ingrese el correo: </ion-label>
+      <ion-input [(ngModel)]="correo" type="email" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-button (click)="mandarCorreo()">Mandar correo</ion-button>
+    </ion-item>
+  </ion-card>
+</ion-content>

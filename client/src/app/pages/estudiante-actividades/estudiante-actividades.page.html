@@ -1,0 +1,17 @@
+<app-header></app-header>
+<ion-content>
+
+  <ion-card *ngFor="let actividad of actividades">
+    <ion-card-header>
+      <ion-card-title>{{actividad.nombre}}</ion-card-title>
+      <ion-card-subtitle>{{actividad.habilitado}} {{actividad.fecha_limite}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>{{actividad.idSeccion}}</ion-label>
+      <ion-item>
+        <ion-button (click)="agregarEntrega(actividad.tipo_actividad)">Agregar entrega</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

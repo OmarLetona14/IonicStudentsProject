@@ -1,0 +1,10 @@
+<app-header></app-header>
+<ion-content>
+    <ion-item>
+      <ion-label>Contenido</ion-label>
+      <ion-textarea [(ngModel)]="contenido"></ion-textarea>
+    </ion-item>
+    <ion-item>
+        <ion-button (click)="agregarComentario()">Comentar</ion-button>
+    </ion-item>
+</ion-content>

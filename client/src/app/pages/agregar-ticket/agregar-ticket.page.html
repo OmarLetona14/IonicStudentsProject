@@ -1,0 +1,18 @@
+<app-header></app-header>
+<ion-content>
+    <ion-item>
+        <ion-label>Codigo del ticket</ion-label>
+        <ion-input [(ngModel)]="codTicket" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Asunto</ion-label>
+        <ion-input [(ngModel)]="asunto"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Contenido</ion-label>
+      <ion-textarea [(ngModel)]="contenido"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-button (click)="agregarTicket()">Agregar Ticket</ion-button>
+    </ion-item>
+</ion-content>

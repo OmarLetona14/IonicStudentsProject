@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Bienvenido a la aplicación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      Introduzca sus credenciales
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-item>  
+        <ion-label position="floating">Nombre de usuario</ion-label>
+        <ion-input [(ngModel)]="usuarioLogin.nombre_usuario"></ion-input>
+      </ion-item>
+      <ion-item>  
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]= "usuarioLogin.contrasenia"></ion-input>
+        </ion-item>
+        <ion-button expand="block" color="dark" (click)="login()">
+            Iniciar sesion
+        </ion-button>
+        <ion-item>
+          <ion-button routerLink="/registro">
+            Crear una cuenta
+          </ion-button>
+        </ion-item>
+        <ion-item>
+          <ion-button>
+            Ha olvidado su contraseña?
+          </ion-button>
+        </ion-item>
+          
+     
+    </ion-card-content>
+  </ion-card>
+</ion-content>

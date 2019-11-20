@@ -1,0 +1,16 @@
+<app-header title="Usuarios">
+</app-header>  
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let usuario of usuarios">
+      <ion-label>
+        {{usuario.nombre_usuario}}
+        <i class="fas fa-user"></i>
+      </ion-label>
+      <ion-button>
+          <i class="fas fa-user-edit"></i>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

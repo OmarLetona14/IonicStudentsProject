@@ -1,0 +1,21 @@
+<app-header title="Foros"></app-header>
+<ion-content>
+  <ion-card *ngFor="let foro of foros">
+    <ion-card-header>
+        <ion-card-title> {{foro.titulo}}</ion-card-title>
+        <ion-card-subtitle>{{foro.idUsuario}} {{foro.fecha_limite}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{foro.contenido}}</p>
+      <ion-item>
+        <ion-button (click)="verComentarios(foro.idPublicacion)">Ver comentarios</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-fab *ngIf="auxiliar" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary" (click)="add()" >
+        <i class="fas fa-plus"></i>
+    </ion-fab-button>
+  </ion-fab>
+  
+</ion-content>

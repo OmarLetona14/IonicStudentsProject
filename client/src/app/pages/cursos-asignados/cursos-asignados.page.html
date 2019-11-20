@@ -1,0 +1,20 @@
+<app-header title="Cursos asignados " >
+
+</app-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let curso of cursosAsignados">
+      <ion-label >
+        Seccion: {{curso.idSeccion}}
+      </ion-label>
+      <ion-label>
+        Fecha Desasignacion {{curso.fecha_desasignacion}}
+      </ion-label>
+      <ion-label>
+        Nota: {{curso.nota}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
