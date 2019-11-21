@@ -26,6 +26,7 @@ const evaluacionAlumnoRoutes_1 = __importDefault(require("./routes/evaluacionAlu
 const respuestaPreguntaRoutes_1 = __importDefault(require("./routes/respuestaPreguntaRoutes"));
 const respuestaEvaluacionRoutes_1 = __importDefault(require("./routes/respuestaEvaluacionRoutes"));
 const loginRoutes_1 = __importDefault(require("./routes/loginRoutes"));
+const consultasRoutes_1 = __importDefault(require("./routes/consultasRoutes"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -61,6 +62,7 @@ class Server {
         this.app.use('/api/respuestasEvaluacion', respuestaEvaluacionRoutes_1.default);
         this.app.use('/api/secciones', seccionRoutes_1.default);
         this.app.use('/login', loginRoutes_1.default);
+        this.app.use('/api/consultas', consultasRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

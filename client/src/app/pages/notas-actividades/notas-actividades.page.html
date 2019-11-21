@@ -1,9 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>notas-actividades</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<app-header title="Notas"></app-header>
 <ion-content>
-
+  <ion-card *ngFor="let actividad of actividades">
+    <ion-card-header>
+      {{actividad.nombre_actividad}}
+    </ion-card-header>
+    <ion-card-content>
+      <p>Nota: {{actividad.nota}}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

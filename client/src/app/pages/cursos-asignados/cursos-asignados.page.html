@@ -4,17 +4,15 @@
 
 <ion-content>
 
-  <ion-list>
-    <ion-item *ngFor="let curso of cursosAsignados">
-      <ion-label >
-        Seccion: {{curso.idSeccion}}
-      </ion-label>
-      <ion-label>
-        Fecha Desasignacion {{curso.fecha_desasignacion}}
-      </ion-label>
-      <ion-label>
-        Nota: {{curso.nota}}
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-card *ngFor="let curso of cursosAsignados">
+    <ion-card-header>
+      <ion-card-title>{{curso.nombre}}</ion-card-title>
+      <ion-card-subtitle>Seccion: {{curso.identificador_seccion}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Horario: {{curso.hora_inicio}} - {{curso.hora_final}}</p>
+      <p>Fecha desasignacion: {{curso.fecha_desasignacion}}</p>
+      <h3>Nota: {{curso.nota}}</h3>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

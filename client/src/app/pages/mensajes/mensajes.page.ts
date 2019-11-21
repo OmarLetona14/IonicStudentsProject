@@ -12,11 +12,13 @@ export class MensajesPage implements OnInit {
 
   usuario:Usuario;
   mensajes:any=[];
+  auxiliar:boolean;
 
   constructor(private mensajesService:MensajesService, private router:Router) { }
 
   ngOnInit() {
     this.usuario = JSON.parse(localStorage.getItem('usuarioLogeado'));
+    if(this.usuario.rol=='Auxiliar'){this.auxiliar=true;}else{this.auxiliar=false}
     this.getAllMensajes();
   }
 

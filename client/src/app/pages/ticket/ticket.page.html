@@ -2,8 +2,8 @@
 <ion-content>
   <ion-card *ngFor="let ticket of tickets">
     <ion-card-header>
-      <ion-card-title>{{ticket.estado}}</ion-card-title>
-      <ion-card-subtitle>{{ticket.asunto}}</ion-card-subtitle>
+      <ion-card-title>Estado: {{ticket.estado}}</ion-card-title>
+      <ion-card-subtitle>Asunto: {{ticket.asunto}}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <p>{{ticket.contenido}}</p>

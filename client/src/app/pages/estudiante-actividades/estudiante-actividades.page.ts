@@ -3,6 +3,7 @@ import { ActividadesAsignadasService } from 'src/app/services/actividades-asigna
 import { ActividadesService } from 'src/app/services/actividades.service';
 import { Usuario } from 'src/app/models/Usuario';
 import { Actividad } from 'src/app/models/Actividad';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-estudiante-actividades',
@@ -14,7 +15,7 @@ export class EstudianteActividadesPage implements OnInit {
   usuario:Usuario;
   actividadesAsignadas:any=[];
   actividades:any=[];
-  constructor(private actividadesAsignadasService:ActividadesAsignadasService, private actividadesService:ActividadesService) { }
+  constructor(private actividadesAsignadasService:ActividadesAsignadasService, private actividadesService:ActividadesService, private router:Router) { }
 
   ngOnInit() {
     this.usuario = JSON.parse(localStorage.getItem('usuarioLogeado'));
@@ -25,33 +26,17 @@ export class EstudianteActividadesPage implements OnInit {
   getAllActividades(){
     this.actividadesAsignadasService.getActividadesAsignadasByStudent(this.usuario.idUsuario.toString()).subscribe(
       res=>{
-        this.actividadesAsignadas=res;
-        this.getActividades();
+        this.actividades=res;
       },
       err=>{
 
       }
     );
-
   }
 
-  getActividades(){
-    for (let index = 0; index < this.actividadesAsignadas.length; index++) {
-      const element = this.actividadesAsignadas[index];
-      this.actividadesService.getOne(element.idActividad).subscribe(
-        res=>{
-          let actividad:Actividad = res;
-          this.actividades[this.actividades.length] = actividad;
-          console.log(actividad);
-          console.log(this.actividades);
-        },
-        err=>{
-
-        }
-      );
-      
-    }
-
+  agregarEntrega(idActividad:string){
+    localStorage.setItem('idActividad', idActividad);
+    this.router.navigate(['/entrega']);
   }
 
 }

@@ -95,6 +95,10 @@ const routes: Routes = [
     path: 'recuperacion',
     loadChildren: () => import('./pages/recuperacion/recuperacion.module').then( m => m.RecuperacionPageModule)
   },
+  {
+    path: 'entrega',
+    loadChildren: () => import('./pages/entrega/entrega.module').then( m => m.EntregaPageModule)
+  },
 
 ];
 

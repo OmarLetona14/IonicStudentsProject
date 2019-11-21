@@ -38,7 +38,11 @@ class ComentarioController{
     }
 
     public async getByPublish(req:Request, res:Response){
-        await pool.query('SELECT * FROM COMENTARIO WHERE idPublicacion = ?',req.params.idPublicacion, function(err, result, fields) {
+        let idPublish = req.params.idPublicacion;
+        let consulta ="SELECT * FROM COMENTARIO "+
+        " INNER JOIN usuario ON usuario.idUsuario = comentario.idUsuario"+
+        " WHERE idPublicacion = "+idPublish;
+        await pool.query(consulta, function(err, result, fields) {
             if (err) throw err;
             res.json(result);
         });

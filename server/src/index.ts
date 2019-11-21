@@ -22,6 +22,7 @@ import evaluacionAlumnoRoutes from './routes/evaluacionAlumnoRoutes';
 import respuestaPreguntaRoutes from './routes/respuestaPreguntaRoutes';
 import respuestaEvaluacionRoutes from './routes/respuestaEvaluacionRoutes';
 import loginRoutes from './routes/loginRoutes';
+import consultasRoutes from './routes/consultasRoutes';
 
 class Server{
 
@@ -63,6 +64,7 @@ class Server{
         this.app.use('/api/respuestasEvaluacion',respuestaEvaluacionRoutes);
         this.app.use('/api/secciones',seccionRoutes);
         this.app.use('/login',loginRoutes);
+        this.app.use('/api/consultas',consultasRoutes);
     }
 
     start():void{

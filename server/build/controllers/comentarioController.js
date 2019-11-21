@@ -58,7 +58,11 @@ class ComentarioController {
     }
     getByPublish(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('SELECT * FROM COMENTARIO WHERE idPublicacion = ?', req.params.idPublicacion, function (err, result, fields) {
+            let idPublish = req.params.idPublicacion;
+            let consulta = "SELECT * FROM COMENTARIO " +
+                " INNER JOIN usuario ON usuario.idUsuario = comentario.idUsuario" +
+                " WHERE idPublicacion = " + idPublish;
+            yield database_1.default.query(consulta, function (err, result, fields) {
                 if (err)
                     throw err;
                 res.json(result);

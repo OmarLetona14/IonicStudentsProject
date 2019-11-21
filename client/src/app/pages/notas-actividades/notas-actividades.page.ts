@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActividadesAsignadasService } from 'src/app/services/actividades-asignadas.service';
+import { Usuario } from 'src/app/models/Usuario';
 
 @Component({
   selector: 'app-notas-actividades',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotasActividadesPage implements OnInit {
 
-  constructor() { }
+  actividades:any=[];
+  usuario:Usuario;
+
+  constructor(private actividadesAsignadasService:ActividadesAsignadasService) { }
 
   ngOnInit() {
+    this.usuario = JSON.parse(localStorage.getItem('usuarioLogeado'));
+    this.getAllActividades();
   }
 
+
+  getAllActividades(){
+    this.actividadesAsignadasService.getActividadesAsignadasByStudent(this.usuario.idUsuario.toString()).subscribe(
+      res=>{
+        this.actividades=res;
+      },
+      err=>{
+
+      }
+    );
+    
+  }
 }

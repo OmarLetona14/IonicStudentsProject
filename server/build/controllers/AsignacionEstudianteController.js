@@ -58,7 +58,14 @@ class AsignacionEstudianteController {
     }
     getByEstudiante(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('SELECT * FROM Asignacion_estudiante WHERE idUsuario = ?', req.params.idUsuario, function (err, result, fields) {
+            let idUser = req.params.idUsuario;
+            let consulta = "SELECT * FROM Asignacion_estudiante" +
+                " INNER JOIN seccion ON seccion.idSeccion = asignacion_estudiante.idSeccion " +
+                " INNER JOIN curso ON curso.codCurso = seccion.codCurso " +
+                " INNER JOIN horario ON seccion.idHorario = horario.idHorario" +
+                " WHERE asignacion_estudiante.idUsuario = " + idUser;
+            console.log(consulta);
+            yield database_1.default.query(consulta, function (err, result, fields) {
                 if (err)
                     throw err;
                 res.json(result);

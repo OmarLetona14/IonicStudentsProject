@@ -38,7 +38,8 @@ class MensajeController{
     }
 
     public async getMensajesByUser(req:Request, res:Response){
-        await pool.query('SELECT * FROM MENSAJE WHERE idDestinatario = ?',req.params.idUsuario, function(err, result, fields) {
+        let consulta  = "SELECT * FROM MENSAJE INNER JOIN Usuario ON usuario.idUsuario = mensaje.idRemitente WHERE idDestinatario = ?";
+        await pool.query(consulta,req.params.idUsuario, function(err, result, fields) {
             if (err) throw err;
             res.json(result);
         });

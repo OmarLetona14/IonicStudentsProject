@@ -37,7 +37,14 @@ class AsignacionEstudianteController{
     }
 
     public async getByEstudiante(req:Request, res:Response){
-        await pool.query('SELECT * FROM Asignacion_estudiante WHERE idUsuario = ?',req.params.idUsuario, function(err, result, fields) {
+        let idUser =req.params.idUsuario;
+        let consulta ="SELECT * FROM Asignacion_estudiante"+
+        " INNER JOIN seccion ON seccion.idSeccion = asignacion_estudiante.idSeccion "+
+        " INNER JOIN curso ON curso.codCurso = seccion.codCurso "+
+        " INNER JOIN horario ON seccion.idHorario = horario.idHorario"+
+        " WHERE asignacion_estudiante.idUsuario = "+idUser;
+        console.log(consulta);
+        await pool.query(consulta, function(err, result, fields) {
             if (err) throw err;
             res.json(result);
         });

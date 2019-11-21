@@ -38,7 +38,13 @@ class ActividadAsignadaController{
     }
 
     public async getActividadesAsignadasByStudent(req:Request, res:Response){
-        await pool.query('SELECT * FROM ACTIVIDADES_ASIGNADAS WHERE idUsuario = ?',req.params.idUsuario, function(err, result, fields) {
+        let idUser = req.params.idUsuario;
+        let consulta = "SELECT * FROM ACTIVIDADES_ASIGNADAS "+
+        " INNER JOIN actividad ON actividad.idActividad = actividades_asignadas.idActividad"+ 
+        " INNER JOIN seccion ON seccion.idSeccion = actividad.idSeccion"+
+        " INNER JOIN curso ON curso.codCurso = seccion.codCurso "+
+        " WHERE ACTIVIDADES_ASIGNADAS.idUsuario = "+idUser; 
+        await pool.query(consulta, function(err, result, fields) {
             if (err) throw err;
             res.json(result);
         });

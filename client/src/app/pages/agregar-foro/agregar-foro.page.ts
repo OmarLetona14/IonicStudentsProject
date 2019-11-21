@@ -23,6 +23,7 @@ export class AgregarForoPage implements OnInit {
     titulo:'',
     fecha_limite:'',
     contenido:'',
+    fecha_publicacion:'',
     idUsuario:0,
     idSeccion:0
   };
@@ -30,6 +31,7 @@ export class AgregarForoPage implements OnInit {
 
   ngOnInit() {
     this.getSecciones();
+    console.log(this.publicacion.fecha_publicacion);
   }
 
   getSecciones(){
@@ -47,6 +49,7 @@ export class AgregarForoPage implements OnInit {
     delete this.publicacion.idPublicacion;
     this.publicacion.titulo = this.titulo;
     this.publicacion.contenido=this.contenido;
+    this.publicacion.fecha_publicacion=this.formatDate(this.fecha_actual);
     this.publicacion.idUsuario= this.usuario.idUsuario;
     this.publicacion.idSeccion = Number.parseInt(this.idSeccion);
     this.publicacion.fecha_limite = this.formatDate(this.fecha_actual);

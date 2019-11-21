@@ -58,7 +58,13 @@ class ActividadAsignadaController {
     }
     getActividadesAsignadasByStudent(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('SELECT * FROM ACTIVIDADES_ASIGNADAS WHERE idUsuario = ?', req.params.idUsuario, function (err, result, fields) {
+            let idUser = req.params.idUsuario;
+            let consulta = "SELECT * FROM ACTIVIDADES_ASIGNADAS " +
+                " INNER JOIN actividad ON actividad.idActividad = actividades_asignadas.idActividad" +
+                " INNER JOIN seccion ON seccion.idSeccion = actividad.idSeccion" +
+                " INNER JOIN curso ON curso.codCurso = seccion.codCurso " +
+                " WHERE ACTIVIDADES_ASIGNADAS.idUsuario = " + idUser;
+            yield database_1.default.query(consulta, function (err, result, fields) {
                 if (err)
                     throw err;
                 res.json(result);

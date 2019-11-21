@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { NotasActividadesPageRoutingModule } from './notas-actividades-routing.module';
+import { EntregaPageRoutingModule } from './entrega-routing.module';
 
-import { NotasActividadesPage } from './notas-actividades.page';
+import { EntregaPage } from './entrega.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { ComponentsModule } from 'src/app/components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    NotasActividadesPageRoutingModule,
+    EntregaPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [NotasActividadesPage]
+  declarations: [EntregaPage]
 })
-export class NotasActividadesPageModule {}
+export class EntregaPageModule {}

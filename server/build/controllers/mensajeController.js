@@ -58,7 +58,8 @@ class MensajeController {
     }
     getMensajesByUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('SELECT * FROM MENSAJE WHERE idDestinatario = ?', req.params.idUsuario, function (err, result, fields) {
+            let consulta = "SELECT * FROM MENSAJE INNER JOIN Usuario ON usuario.idUsuario = mensaje.idRemitente WHERE idDestinatario = ?";
+            yield database_1.default.query(consulta, req.params.idUsuario, function (err, result, fields) {
                 if (err)
                     throw err;
                 res.json(result);
